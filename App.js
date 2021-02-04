@@ -36,7 +36,7 @@ class App extends React.Component {
                 autoCorrect={false} />
             </View>
             <View style={{flex:1}}>
-            <TouchableOpacity onPressOut={() => addTodo(text)}>
+            <TouchableOpacity testID={'addbutton'} onPressOut={() => addTodo(text)}>
                 <View style={styles.button}>
                   <Text style={{color: '#fff', fontWeight: 'bold'}}>Add</Text>
                 </View>

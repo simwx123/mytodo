@@ -28,6 +28,7 @@ class TodoList extends React.Component {
   render() {
     const { isEditing, todoValue } = this.state
     const { id, isCompleted, toggleTodo, removeTodo } = this.props
+
     return (
       <View style={styles.container}>
         <View style={styles.row}>
@@ -42,7 +43,7 @@ class TodoList extends React.Component {
                 onChangeText={(newText) => this.setState({ todoValue: newText })}
                 autoCorrect={false} 
                 autoFocus = {true}/>
-            : <Text style={[styles.text, isCompleted ? styles.completed : styles.text]}>{todoValue}</Text>
+            : <Text testID={'listdata'} style={[styles.text, isCompleted ? styles.completed : styles.text]}>{todoValue}</Text>
           }
         </View>
         <View style={styles.buttonContainer}>

@@ -1,22 +1,25 @@
-import 'react-native';
 import React from 'react';
 import App from '../App';
-import renderer from 'react-test-renderer';
-import NavigationTestUtils from 'react-navigation/NavigationTestUtils';
+import {Provider} from 'react-redux';
+import configureStore from 'redux-mock-store';
+import {render, cleanup, fireEvent, waitFor} from 'react-native-testing-library';
 
-describe('App snapshot', () => {
-  jest.useFakeTimers();
-  beforeEach(() => {
-    NavigationTestUtils.resetInternalState();
-  });
+afterEach(cleanup);
 
-  it('renders the loading screen', async () => {
-    const tree = renderer.create(<App />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
+describe('<App />', () => {
+  const mockStore = configureStore([]);
+  it('Add button onclick and ist value', async() => {
+    const store = mockStore({todo: [{id:1, isCompleted: false, todo: "Exercise"}]});
+    const rendered = render(
+      <Provider store={store}><App /></Provider>
+    );
 
-  it('renders the root without loading screen', async () => {
-    const tree = renderer.create(<App skipLoadingScreen />).toJSON();
-    expect(tree).toMatchSnapshot();
+    const buttonComponent = rendered.getByTestId('addbutton');
+    fireEvent(buttonComponent, 'onPressOut');
+
+    await waitFor(() => expect(rendered.queryByTestId('listdata')).toBeTruthy())
+    expect(rendered.getByTestId('listdata').props.children).toBe(
+      'Exercise'
+    )
   });
 });
