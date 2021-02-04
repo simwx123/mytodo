@@ -36,7 +36,7 @@ npm install
 Now you can run the App with `npm run android` or `npm run ios` depending on your platform.
 
 ## Made with
-- [Expo](https://www.npmjs.com/package/expo) (Make things beautiful)
+- [Expo](https://www.npmjs.com/package/expo)
 - [React Native](https://facebook.github.io/react-native/)
 - [React Redux](https://react-redux.js.org/)
 
