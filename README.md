@@ -7,6 +7,7 @@ An todo app create by React Native
 ![Edit todo](https://i.imgur.com/K6GLiYY.png?1)
 ![Tick as done](https://i.imgur.com/OSBt0C2.png?1)
 ![Show completed](https://i.imgur.com/eI91SDv.png?2)
+![Show incompleted](https://i.imgur.com/2fTX27W.png?1)
 
 ## Getting started
 
