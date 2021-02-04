@@ -32,7 +32,7 @@ npm install
 ```
 
 ## Running
-Now you can run the App with `npm run start` or `npm run web` or `npm run android` or `npm run ios` depending on your platform.
+Now you can run the App with `npm run start` or `npm run web` or `npm run android` or `npm run ios` depending on your platform.\
 Run the App test case with `npm run test`.\
 Eject App with `npm run eject`.
 
