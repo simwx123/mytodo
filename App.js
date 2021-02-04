@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, StatusBar, TextInput, Dimensions, ScrollView, TouchableOpacity, Button} from 'react-native'
+import { StyleSheet, Text, View, StatusBar, TextInput, Dimensions, ScrollView, TouchableOpacity} from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import TodoList from './components/todolist'
 import Filter from './components/filter';
