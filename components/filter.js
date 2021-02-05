@@ -6,7 +6,7 @@ import  {
   View,
   Text
 } from 'react-native';
-import {VisibilityFilters} from '../actions/types';
+import {FiltersTypes} from '../actions/types';
 import { connect } from 'react-redux'
 import { showAll, showCompleted, showIncomplete } from '../actions/actions'
 import { todoFilter } from "../selectors";
@@ -31,8 +31,7 @@ class Filter extends React.Component {
 
 
   renderFilters() {
-    const { incompleteTask } = this.props
-    var {activeFilter, showAll, showCompleted, showIncomplete} = this.props;
+    const { incompleteTask, filterShow, showAll, showCompleted, showIncomplete} = this.props
 
     const displayIncomplete = (filter) =>{
       if(incompleteTask.todos.length && filter==='Incomplete') return  <Text style={styles.incompletecount}>{incompleteTask.todos.length}</Text>
@@ -40,12 +39,12 @@ class Filter extends React.Component {
     }
     
     return [
-      {name: VisibilityFilters.ALL, action: showAll},
-      {name: VisibilityFilters.COMPLETED, action: showCompleted},
-      {name: VisibilityFilters.INCOMPLETE, action: showIncomplete}
+      {name: FiltersTypes.ALL, action: showAll},
+      {name: FiltersTypes.COMPLETED, action: showCompleted},
+      {name: FiltersTypes.INCOMPLETE, action: showIncomplete}
     ].map((filter, key) => {
       var style = [styles.button];
-      if (activeFilter === filter.name) {
+      if (filterShow === filter.name) {
         style.push(styles.current);
       }
       return (
@@ -97,8 +96,9 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mapStateToProps = state => {
+  const { filterShow } = state;
   const incompleteTask = {todos: todoFilter(state, 'INCOMPLETE')};
-  return { incompleteTask };
+  return { incompleteTask, filterShow };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter)

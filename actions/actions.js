@@ -1,4 +1,4 @@
-import { ADD_TODO, EDIT_TODO, REMOVE_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER, VisibilityFilters } from './types'
+import { ADD_TODO, EDIT_TODO, REMOVE_TODO, TOGGLE_TODO, SET_FILTER, FiltersTypes } from './types'
 
 let nextId = 0
 export const addTodo = (todo) => ({ 
@@ -25,21 +25,21 @@ export const toggleTodo = (id) => ({
 
 export function showAll() {
   return {
-    type: SET_VISIBILITY_FILTER,
-    payload: VisibilityFilters.ALL
+    type: SET_FILTER,
+    payload: FiltersTypes.ALL
   };
 }
 
 export function showCompleted() {
   return {
-    type: SET_VISIBILITY_FILTER,
-    payload: VisibilityFilters.COMPLETED
+    type: SET_FILTER,
+    payload: FiltersTypes.COMPLETED
   };
 }
 
 export function showIncomplete() {
   return {
-    type: SET_VISIBILITY_FILTER,
-    payload: VisibilityFilters.INCOMPLETE
+    type: SET_FILTER,
+    payload: FiltersTypes.INCOMPLETE
   };
 }

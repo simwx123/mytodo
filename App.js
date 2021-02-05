@@ -17,7 +17,7 @@ class App extends React.Component {
 
   render() {
     const { text } = this.state
-    const { states, addTodo, filter } = this.props
+    const { states, addTodo } = this.props
     return (
       <LinearGradient style={styles.container}
         colors={['#4568dc', '#b06ab3']}>
@@ -52,9 +52,7 @@ class App extends React.Component {
             )}
           </ScrollView>
 
-            <Filter
-              activeFilter={filter}
-              />
+          <Filter />
         </View>
       </LinearGradient>
     )
@@ -63,9 +61,8 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   const { filterShow } = state;
-  const filter = filterShow;
   const states = {todos: todoFilter(state, filterShow)};
-  return { states, filter };
+  return { states };
 };
 
 const mapDispatchToProps = dispatch => ({

@@ -3,14 +3,8 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 import { persistStore } from 'redux-persist'
 import reducers from "./reducers";
-import storage from 'redux-persist/lib/storage'
 import thunk from 'redux-thunk'
 import App from './App'
-
-const config = {
-  key: 'root',
-  storage
-}
 
 const store = createStore(
   reducers, 
